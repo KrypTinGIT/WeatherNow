@@ -30,7 +30,7 @@ export default {
     name: 'ApiRead',
     methods: {
         searchWeather() {
-            const apiKey = '--api key--';
+            const apiKey = '-- API Key --';
             let url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=de&q=' + this.myLocation + '&appid=' + apiKey;
             console.log(url);
             fetch( url )
@@ -39,7 +39,7 @@ export default {
                 .catch ( error => alert(error) )
         },
         getForecast(latitude, longitude) {
-            const apiKey = '--api key--';
+            const apiKey = '-- API Key --';
             let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&units=metric&lang=de&exclude=current,hourly,minutely&appid=' + apiKey;
             console.log(url);
             fetch( url )
@@ -55,6 +55,7 @@ export default {
             this.dailyWeatherData.icon = currentWeather.weather[0].icon;
             this.dailyWeatherData.humidity = currentWeather.main.humidity;
             this.dailyWeatherData.windSpeed = currentWeather.wind.speed;
+            this.dailyWeatherData.windDirection = currentWeather.wind.deg;
             this.dailyWeatherData.visibility = currentWeather.visibility;
             this.dailyWeatherData.lat = currentWeather.coord.lat; 
             this.dailyWeatherData.lon = currentWeather.coord.lon;
@@ -93,6 +94,7 @@ export default {
             icon: String,
             humidity: Number,
             windSpeed: Number,
+            windDirection: Number,
             visibility: Number,
             lat: Number,
             lon: Number,

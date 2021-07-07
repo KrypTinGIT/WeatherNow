@@ -6,22 +6,29 @@
       class="weather-items text-container orange-side standard-padding"
     >
       <!---->
-      <li data-v-3208ab85="">
-        <div data-v-3208ab85="" class="wind-line">
-          8.8m/s WSW
+      <li>
+        <div class="wind-line">
+          <svg
+            width="30pt"
+            height="30pt"
+            viewBox="0 0 250 250"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g fill="grey" transform="rotate(45 100 100)"> 
+              <polygon id="heart" points="110,10 50,190 110,150 170,190" />
+            </g>
+          </svg> {{ weather.windSpeed }}m/s {{ weather.windDirection }}Grad
         </div>
       </li>
-      <li data-v-3208ab85="">
-        <span data-v-3208ab85="" class="symbol">Humidity:</span>{{ weather.humidity }} %
+      <li>
+        <span class="symbol">Luftfeuchtigkeit:</span>{{ weather.humidity }} %
       </li>
-      <li data-v-3208ab85="">
-        <span data-v-3208ab85="" class="symbol">UV:</span>4
+      <li>
+        <span class="symbol">Temperatur:</span>{{ weather.temp }}°C
       </li>
-      <li data-v-3208ab85="">
-        <span data-v-3208ab85="" class="symbol">Hallo:</span>13°C
-      </li>
-      <li data-v-3208ab85="">
-        <span data-v-3208ab85="" class="symbol">Visibility:</span>{{ weather.visibility }} m
+      <li>
+        <span class="symbol">Fernsicht:</span>{{ weather.visibility }} m
       </li>
     </ul>
   </div>

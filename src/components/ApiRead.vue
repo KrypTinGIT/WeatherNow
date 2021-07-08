@@ -211,7 +211,35 @@ export default {
         padding-left: 2em;
     }
 
+    @keyframes flyin{
+        to{
+            filter: blur(0);
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
     #table-right{
         padding-right: 2em;
+    }    @keyframes flyin{
+        to{
+            filter: blur(0);
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+	@mixin animation($animation-delay) {
+        animation: flyin 500ms $animation-delay ease-in forwards;
+        opacity: 0;
+        transform: scale(0.75);
+        filter: blur(4px);
+	}
+
+    #description{
+        @include animation(100ms);
+    }
+
+    #input-panel {
+        @include animation(500ms);    
     }
 </style>

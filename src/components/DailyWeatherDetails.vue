@@ -18,17 +18,17 @@
             <g fill="grey" :transform="'rotate( ' + weather.windDirection + ' 100 100)'"> 
               <polygon id="heart" points="110,10 50,190 110,150 170,190" />
             </g>
-          </svg> {{ weather.windSpeed }}m/s {{ weather.windDirection }}Grad
+          </svg> {{ weather.windSpeed }}m/s
         </div>
       </li>
       <li>
-        <span class="symbol">Luftfeuchtigkeit:</span>{{ weather.humidity }} %
+        <span class="symbol">Temperatur:</span> {{ weather.temp }}°C
       </li>
       <li>
-        <span class="symbol">Temperatur:</span>{{ weather.temp }}°C
+        <span class="symbol">Luftfeuchtigkeit:</span> {{ weather.humidity }}%
       </li>
       <li>
-        <span class="symbol">Fernsicht:</span>{{ weather.visibility }} m
+        <span class="symbol">Fernsicht:</span> {{ weather.visibility }}m
       </li>
     </ul>
   </div>
@@ -44,7 +44,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+.weather-detail{
+  font-size: 0.7em;
+}
+
 h3 {
   margin: 40px 0 0;
 }

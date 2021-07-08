@@ -10,10 +10,16 @@
 <div id="background-panel">
 <div id="foreground-panel">
 <div id="weatherBox" v-if="this.dailyWeatherData.validData">
-    <DailyWeatherDescription v-bind:weather="dailyWeatherData" />
-    <DailyWeatherOverview v-bind:weather="dailyWeatherData" />
-    <DailyWeatherDetails v-bind:weather="dailyWeatherData" />
-    <WeatherForecast v-bind:forecast="forecastWatherData" />
+    <table id="weather-content">
+        <tr>
+            <td id="table-left"><DailyWeatherOverview v-bind:weather="dailyWeatherData" />
+            <DailyWeatherDescription v-bind:weather="dailyWeatherData" /></td>
+            <td id="table-right"><DailyWeatherDetails v-bind:weather="dailyWeatherData" /></td>
+        </tr>
+        <tr>
+            <WeatherForecast v-bind:forecast="forecastWatherData" />
+        </tr>
+    </table>
 </div>
 </div>
 </div>
@@ -120,12 +126,17 @@ export default {
 
 <style lang="scss">
 @import '@/assets/_shared.scss';
+
+    *{
+        color: $text-color;
+    }
     
     #description {
         height: 12em;
         text-align: center;
         margin-left: 23em;
         margin-right: 23em;
+        margin-top: 5em;
         
         h1{
             color: $main-color;
@@ -167,14 +178,29 @@ export default {
 
     #background-panel{
         background-color: $light-background-color;
+        margin-top: 10em;
+        height: 40em;
     }
 
     #foreground-panel{
         background-color: $highlight-color;
         display: inline-block;
-        margin-left: 20em;
-        margin-right: 20em;
-        margin-top: 10em;
-        margin-bottom: 10em;
+        text-align: center;
+        height: 30em;
+        width: 40em;
+        margin-left: 25em;
+        margin-top: 5em;
+    }
+
+    #weather-content{
+        text-align: left;
+    }
+
+    #table-left{
+        padding-left: 2em;
+    }
+
+    #table-right{
+        padding-right: 2em;
     }
 </style>

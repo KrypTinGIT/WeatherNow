@@ -1,10 +1,19 @@
 <template>
-  <div id="icon">
-    <img v-bind:src="'https://openweathermap.org/img/wn/' + weather.icon + '@2x.png'" />
-  </div>
-  <div class="weather-overview">
-    <span class="heading">{{ weather.temp }}°C</span>
-  </div>
+<table>
+  <tr>
+    <td>
+      <h1 id="location">{{ weather.id }}</h1>
+      <div class="weather-overview">
+        <h1><span class="heading">{{ weather.temp }}°C</span></h1>
+      </div>
+    </td>
+    <td>
+      <div id="icon">
+        <img v-bind:src="'https://openweathermap.org/img/wn/' + weather.icon + '@2x.png'" />
+      </div>
+    </td>
+  </tr>
+</table>
 </template>
 
 <script>
@@ -17,7 +26,23 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+#location{
+  font-size: 2.5em;
+}
+
+#icon{
+  img{
+    padding-top: 5em;
+  }
+}
+
+#weather-overview{
+  h1{
+    padding-top: 2em;
+  }
+}
+
 h3 {
   margin: 40px 0 0;
 }

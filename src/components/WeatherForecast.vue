@@ -1,11 +1,14 @@
 <template>
 <h2>Forecast</h2>
-<ol v-for="forecastDay in forecast" :key="forecastDay.timestamp">
-    <li> {{ TimestapToDay(forecastDay.timestamp) }} 
+<table id="forecast-content">
+  <tr>
+    <td v-for="forecastDay in forecast" :key="forecastDay.timestamp">
+        {{ TimestapToDay(forecastDay.timestamp) }} 
         <img v-bind:src="'https://openweathermap.org/img/wn/' + forecastDay.icon + '@2x.png'" />
         {{ forecastDay.temperature }}°C 
-    </li>
-</ol>
+    </td>
+  </tr>
+</table>
 </template>
 
 <script>
@@ -30,3 +33,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  h2{
+    padding-left: 1.7em;
+  }
+  #forecast-content{
+    text-align: center;
+    padding-left: 2em;
+  }
+</style>

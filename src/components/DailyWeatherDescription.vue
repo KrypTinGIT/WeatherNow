@@ -1,7 +1,6 @@
 <template>
   <div class="weather-description">
-    <h1>{{ weather.id }}</h1>
-    <p>Feels like {{ weather.feelslike }}°C, {{ weather.description }}.</p>
+    <p>Fühlt sich an wie {{ weather.feelslike }}°C</p>
   </div>
 </template>
 
@@ -15,7 +14,12 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+.weather-description{
+  font-size: 0.7em;
+  padding-left: 0.8em;
+}
+
 h3 {
   margin: 40px 0 0;
 }

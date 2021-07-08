@@ -1,7 +1,7 @@
 <template>
 <div id="description">
 <h1>WeatherNow</h1>
-<p>Informieren Sie sich mit der WeatherNow schnell und einfach über das Wetter auf der ganzen Welt. Sie erhalten auch eine Wettervorhersage für die nächsten 4 Tage. Die Daten werden alle 10 Minuten aktualisiert. Geben sie ihren gesuchten Ort in das untenstehende Eingabefeld ein. Ihr WeatherNow-Team!</p>
+<p>Informieren Sie sich mit der WeatherNow schnell und einfach über das Wetter auf der ganzen Welt. Sie erhalten auch eine Wettervorhersage für die nächsten 4 Tage. Die Daten werden alle 10 Minuten aktualisiert. Geben Sie Ihren gesuchten Ort in das untenstehende Eingabefeld ein. Ihr WeatherNow-Team!</p>
 </div>
 <div id="input-panel">
 <input id="input" type="text" placeholder="Ort" v-model="myLocation" />
@@ -25,13 +25,13 @@ import DailyWeatherOverview from "./DailyWeatherOverview.vue";
 import DailyWeatherDescription from "./DailyWeatherDescription.vue";
 import DailyWeatherDetails from "./DailyWeatherDetails.vue";
 import WeatherForecast from "./WeatherForecast.vue";
+import config from '../config.js'
 
 export default {
     name: 'ApiRead',
     methods: {
         searchWeather() {
-            const apiKey = '-- API Key --';
-            let url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=de&q=' + this.myLocation + '&appid=' + apiKey;
+            let url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=de&q=' + this.myLocation + '&appid=' + config.weatherAPIKey;
             console.log(url);
             fetch( url )
                 .then ( async response => await response.json() )
@@ -39,8 +39,7 @@ export default {
                 .catch ( error => alert(error) )
         },
         getForecast(latitude, longitude) {
-            const apiKey = '-- API Key --';
-            let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&units=metric&lang=de&exclude=current,hourly,minutely&appid=' + apiKey;
+            let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&units=metric&lang=de&exclude=current,hourly,minutely&appid=' + config.weatherAPIKey;
             console.log(url);
             fetch( url )
                 .then ( async response => await response.json() )

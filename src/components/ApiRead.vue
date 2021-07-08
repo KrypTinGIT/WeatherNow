@@ -214,12 +214,4 @@ export default {
     #table-right{
         padding-right: 2em;
     }
-
-    #error{
-        padding-top: 1em;
-        padding-right: 3em;
-        text-align: center;
-        color: $main-color;
-        font-size: 2em;
-    }
 </style>

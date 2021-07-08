@@ -119,11 +119,7 @@ export default {
 </script>
 
 <style lang="scss">
-    $main-color: #809682;
-    $text-color: #534D4D;
-    $highlight-color: #FFFFFF;
-    $background-color: #A7A7A7;
-    $light-background-color: #ECECEC;
+@import '@/assets/_shared.scss';
     
     #description {
         height: 12em;

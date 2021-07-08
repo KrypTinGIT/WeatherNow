@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss">
-    $main-color: #809682;
+@import '@/assets/_shared.scss';
     
     .header {
         height: 5em;

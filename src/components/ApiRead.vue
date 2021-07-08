@@ -184,6 +184,12 @@ export default {
             display: inline-block;
             cursor: pointer;
             border-radius: 2em;
+            opacity: 1;
+            transition: 0.5s;
+
+            &:hover{
+                opacity: 0.6;
+            }
         }
     }
 
@@ -241,5 +247,13 @@ export default {
 
     #input-panel {
         @include animation(500ms);    
+    }
+
+    #error{
+        padding-top: 1em;
+        padding-right: 3em;
+        text-align: center;
+        color: $main-color;
+        font-size: 2em;
     }
 </style>

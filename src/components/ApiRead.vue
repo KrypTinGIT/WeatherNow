@@ -26,7 +26,7 @@
     </div>
 </div>
 <div v-else>
-    <h2 id="404Error">Ooops, da ist etwas schief gelaufen</h2>
+    <h2 id="error">Ooops, da ist etwas schief gelaufen</h2>
 </div>
 </template>
 
@@ -189,7 +189,7 @@ export default {
 
     #background-panel{
         background-color: $light-background-color;
-        margin-top: 10em;
+        margin-top: 5em;
         height: 40em;
     }
 
@@ -213,5 +213,13 @@ export default {
 
     #table-right{
         padding-right: 2em;
+    }
+
+    #error{
+        padding-top: 1em;
+        padding-right: 3em;
+        text-align: center;
+        color: $main-color;
+        font-size: 2em;
     }
 </style>

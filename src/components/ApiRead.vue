@@ -7,21 +7,26 @@
 <input id="input" type="text" placeholder="Ort" v-model="myLocation" />
 <button id="submit" v-on:click="searchWeather">🔎</button>
 </div>
-<div id="background-panel">
-<div id="foreground-panel">
-<div id="weatherBox" v-if="this.dailyWeatherData.validData">
-    <table id="weather-content">
-        <tr>
-            <td id="table-left"><DailyWeatherOverview v-bind:weather="dailyWeatherData" />
-            <DailyWeatherDescription v-bind:weather="dailyWeatherData" /></td>
-            <td id="table-right"><DailyWeatherDetails v-bind:weather="dailyWeatherData" /></td>
-        </tr>
-        <tr>
-            <WeatherForecast v-bind:forecast="forecastWatherData" />
-        </tr>
-    </table>
+<div v-if="this.validRequest">
+    <div id="weatherBox" v-if="this.dailyWeatherData.validData">
+    <div id="background-panel">
+    <div id="foreground-panel">
+        <table id="weather-content">
+            <tr>
+                <td id="table-left"><DailyWeatherOverview v-bind:weather="dailyWeatherData" />
+                <DailyWeatherDescription v-bind:weather="dailyWeatherData" /></td>
+                <td id="table-right"><DailyWeatherDetails v-bind:weather="dailyWeatherData" /></td>
+            </tr>
+            <tr>
+                <WeatherForecast v-bind:forecast="forecastWatherData" />
+            </tr>
+        </table>
+    </div>
+    </div>
+    </div>
 </div>
-</div>
+<div v-else>
+    <h2 id="404Error">Ooops, da ist etwas schief gelaufen</h2>
 </div>
 </template>
 
@@ -53,6 +58,8 @@ export default {
                 .catch ( error => alert(error) )
         },
         storeData: function(currentWeather) {
+            try {
+            this.validRequest = true;
             this.dailyWeatherData.id = currentWeather.name;
             this.dailyWeatherData.temp = currentWeather.main.temp;
             this.dailyWeatherData.feelslike = currentWeather.main.feels_like;
@@ -66,6 +73,9 @@ export default {
             this.dailyWeatherData.lon = currentWeather.coord.lon;
             this.dailyWeatherData.validData = true;
             this.getForecast(this.dailyWeatherData.lat, this.dailyWeatherData.lon);
+            } catch (e) {            
+                this.validRequest = false; // Api Error
+            }
         },
         storeForecast: function(dataForecast) {
             console.log(dataForecast.timezone);
@@ -110,7 +120,8 @@ export default {
                 temperature: Number,
                 description: String
             }
-        ]
+        ],
+        validRequest: true,
     }),
     props: {
 

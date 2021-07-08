@@ -15,7 +15,7 @@
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <g fill="grey" transform="rotate(45 100 100)"> 
+            <g fill="grey" :transform="'rotate( ' + weather.windDirection + ' 100 100)'"> 
               <polygon id="heart" points="110,10 50,190 110,150 170,190" />
             </g>
           </svg> {{ weather.windSpeed }}m/s {{ weather.windDirection }}Grad
